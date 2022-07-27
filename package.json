@@ -10,6 +10,8 @@
   },
   "license": "MIT",
   "devDependencies": {
+    "@commitlint/config-conventional": "^17.0.3",
+    "commitlint": "^17.0.3",
     "eslint": "^8.20.0",
     "eslint-config-prettier": "^8.5.0",
     "eslint-plugin-prettier": "^4.2.1",
