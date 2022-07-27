@@ -50,7 +50,9 @@ function sortAndContact(arr, content, hierarchy, parent) {
     if (hierarchy === 1) {
       content += `## ${item.name}\n`;
     } else if (hierarchy === 2) {
-      content += `- [${item.name}](https://github.com/Atlanstis/documents/blob/main/src/${parent.name}/${item.name})\n`;
+      content += `- [${item.name}](https://github.com/Atlanstis/documents/blob/main/src/${encodeURI(
+        parent.name,
+      )}/${encodeURI(item.name)})\n`;
     }
     if (item.children?.length) {
       content = sortAndContact(item.children, content, 2, item);
