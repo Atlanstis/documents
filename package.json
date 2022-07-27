@@ -2,7 +2,10 @@
   "name": "documents",
   "version": "1.0.0",
   "scripts": {
-    "lint:prettier": "prettier --write  \"src/**/*.{js,md}\""
+    "readme": "npm run create:readme && npm run lint:readme",
+    "create:readme": "node ./build/create_README.js",
+    "lint:readme": "prettier --write ./README.md",
+    "lint:prettier": "prettier --write  \"{src,build}/**/*.{js,md}\""
   },
   "license": "MIT",
   "devDependencies": {
