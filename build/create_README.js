@@ -1,6 +1,6 @@
 const fs = require('fs');
 const path = require('path');
-const prettier = require('prettier');
+
 async function start() {
   try {
     const isExist = await isFileExit('README.md');
