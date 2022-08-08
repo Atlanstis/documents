@@ -46,7 +46,8 @@ module.exports = {
         name: 'chore:    其他修改 | Other changes that do not modify src or test files',
       },
     ],
-    skipQuestions: ['scope', 'body', 'breaking', 'footerPrefix', 'footer'],
+    skipQuestions: ['body', 'breaking', 'footerPrefix', 'footer'],
+    // skipQuestions: ['scope', 'body', 'breaking', 'footerPrefix', 'footer'],
     maxHeaderLength: 100,
   },
 };
