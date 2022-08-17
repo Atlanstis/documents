@@ -24,3 +24,4 @@
 ## 5.MongoDB
 
 - [1.MongoDB.md](https://github.com/Atlanstis/documents/blob/main/src/5.MongoDB/1.MongoDB.md)
+- [2.NodeJS 操作 MongoDB.md](https://github.com/Atlanstis/documents/blob/main/src/5.MongoDB/2.NodeJS%20%E6%93%8D%E4%BD%9C%20MongoDB.md)
