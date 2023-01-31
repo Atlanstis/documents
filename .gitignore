@@ -26,4 +26,4 @@ pnpm-debug.log*
 *.sw?
 
 # Obsidian
-workspace
+workspace.json
