@@ -1,3 +1,5 @@
+> [04-effect-stop](https://github.com/Atlanstis/mini-vue/tree/04-effect-stop)
+
 现在需要实现这样一个功能：
 
 - 实现一个 **stop** 函数，该函数的参数为 **effect** 函数的返回值 **runner**。
