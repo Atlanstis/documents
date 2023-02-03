@@ -1,4 +1,4 @@
-[05-readonly](https://github.com/Atlanstis/mini-vue/tree/05-readonly)
+> [05-readonly](https://github.com/Atlanstis/mini-vue/tree/05-readonly)
 
 现在需要实现这样一个功能：
 
