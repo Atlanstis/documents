@@ -50,6 +50,8 @@ export function effect(fn, options: any = {}) {
 
 之前在收集依赖时，在 **track** 函数中，仅收集响应式对象属性的依赖，这里可以进行反向操作，将 **\_effect** 中添加 **deps** 属性，收集相关响应式属性的依赖。
 
+仅当响应式对象在 **effect** 函数中，执行时需要收集依赖，因此在 **track** 前判断，如果 **activeEffect** 不存在，则跳过依赖的收集。
+
 ```typescript
 export function track(target, key) {
   if (!activeEffect) return;
@@ -145,6 +147,8 @@ export function effect(fn, options: any = {}) {
   return runner;
 }
 ```
+
+使用 **extend** 函数的目的是为了将 **effect** 的 **options** 一次性挂载到 **\_effect** 实例，减少后续功能参数的增多，一个个挂载的代码量。
 
 **extend** 函数实现如下：
 
