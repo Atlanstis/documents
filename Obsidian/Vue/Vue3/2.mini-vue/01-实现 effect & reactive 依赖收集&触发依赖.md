@@ -1,5 +1,39 @@
 > [01-effect-&-reactive](https://github.com/Atlanstis/mini-vue/tree/01-effect-%26-reactive)
 
+现在需要实现这样一个功能：
+
+- 实现一个函数 **reactive**，接受一个对象参数 **raw**，并返回一个响应式对象，该响应式对象包含参数 **raw** 的所有属性。
+- 实现一个函数 **effect**，接受一个函数参数 **fn**，**fn** 首先会被执行。**fn** 的如果有访问响应式对象属性的操作，则当相对应的响应式对象属性发生改变时，则 **fn** 会被再次执行。
+
+测试用例如下：
+
+```typescript
+it('happy path', () => {
+  const user = reactive({
+    age: 10,
+  });
+
+  let nextAge;
+  effect(() => {
+    nextAge = user.age + 1;
+  });
+
+  expect(nextAge).toBe(11);
+
+  user.age++;
+
+  expect(nextAge).toBe(12);
+});
+
+it('happy path', () => {
+  const original = { foo: 1 };
+  const observed = reactive(original);
+
+  expect(observed).not.toBe(original);
+  expect(observed.foo).toBe(1);
+});
+```
+
 **Vue 3** 中可以通过 **reactive** 函数将一个普通对象转换为响应式对象。
 
 响应式对象的实现主要通过 [Proxy](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Proxy) 和 [Reflect](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Reflect) 来进行实现。
