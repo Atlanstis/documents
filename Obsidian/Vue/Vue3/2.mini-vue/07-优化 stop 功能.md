@@ -6,6 +6,27 @@
 
 导致在 **get** 中重新触发依赖的收集，因此在 **set** 操作时，重新执行依赖函数。
 
+测试用例如下：
+
+```typescript
+it('stop optimize', () => {
+  let dummy;
+  const obj = reactive({ prop: 1 });
+  const runner = effect(() => {
+    dummy = obj.prop;
+  });
+  obj.prop = 2;
+  expect(dummy).toBe(2);
+  stop(runner);
+  obj.prop++;
+  expect(dummy).toBe(2);
+  runner();
+  expect(dummy).toBe(3);
+});
+```
+
+解决方案就是，增加一个全局变量控制 **shouldTrack** 控制依赖的收集。
+
 ```typescript
 let activeEffect;
 let shouldTrack = false;
@@ -29,8 +50,6 @@ function isTracking() {
   return shouldTrack && activeEffect !== undefined;
 }
 ```
-
-解决方案就是，增加一个全局变量控制 **shouldTrack** 控制依赖的收集。
 
 依赖的收集操作，取决于 **\_fn** 的执行，因此修改 **ReactiveEffect** 类的 **run** 方法。
 
