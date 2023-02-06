@@ -1,3 +1,5 @@
+> [09-shallowReadonly](https://github.com/Atlanstis/mini-vue/tree/09-shallowReadonly)
+
 现在需要实现这样一个功能：
 
 - 实现 **shallowReadonly** 函数，只把参数最外层变成 **readonly**。如果参数属性的值为对象，则该属性的值不为响应式对象。
