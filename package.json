@@ -2,7 +2,7 @@
   "name": "documents",
   "version": "1.0.0",
   "scripts": {
-    "commit": "git cz",
+    "commit": "git cz && git push",
     "readme": "npm run create:readme && npm run lint:readme",
     "create:readme": "node ./build/create_README.js",
     "lint:readme": "prettier --write ./README.md",
